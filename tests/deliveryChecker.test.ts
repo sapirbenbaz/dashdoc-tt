@@ -6,7 +6,7 @@ import {
 
 describe("DeliveryChecker", () => {
   describe("validatePath", () => {
-    test("should return success status and the correct steps for a valid path", () => {
+    test("should return success and the steps for a valid path", () => {
       const expectedOutput: SuccessOutput = {
         status: "success",
         steps: [
@@ -29,7 +29,7 @@ describe("DeliveryChecker", () => {
       expect(result).toEqual(expectedOutput);
     });
 
-    test("should return success status and null actions for a valid path but no deliveries", () => {
+    test("should return success and null actions for a valid path but no deliveries", () => {
       const expectedOutput: SuccessOutput = {
         status: "success",
         steps: [
@@ -47,7 +47,7 @@ describe("DeliveryChecker", () => {
       expect(result).toEqual(expectedOutput);
     });
 
-    test("should return success status and no steps for empty path and no deliveries", () => {
+    test("should return success and no steps for empty path and no deliveries", () => {
       const expectedOutput: SuccessOutput = {
         status: "success",
         steps: [],
@@ -61,7 +61,7 @@ describe("DeliveryChecker", () => {
       expect(result).toEqual(expectedOutput);
     });
 
-    test("should return error status and the error message for invalid path", () => {
+    test("should return error and the error message for invalid path", () => {
       const expectedOutput: ErrorOutput = {
         status: "error",
         error_code: "delivery_dropoff_before_pickup",
@@ -79,7 +79,7 @@ describe("DeliveryChecker", () => {
       expect(result).toEqual(expectedOutput);
     });
 
-    test("should return error status and  error message for missing addresses in path", () => {
+    test("should return error and  error message for missing addresses in path", () => {
       const expectedOutput: ErrorOutput = {
         status: "error",
         error_code: "delivery_address_not_in_path",
